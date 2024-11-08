@@ -1,0 +1,108 @@
+.container {
+  --box-width: calc(0.7 * 100vw);
+  --box-height: 300px;
+}
+
+@media (min-width: 420px) {
+  .container {
+    --box-width: calc(0.5 * 100vw);
+    --box-height: 300px;
+  }
+}
+
+.carousel {
+  width: var(--box-width);
+  height: var(--box-height);
+  position: relative;
+  top: calc(var(--box-height) * 0.02);
+ /*  left: calc(var(--box-width) * 0.05); */
+  border: 2px solid #500000;
+  display: grid;
+  grid-template-rows: calc(var(--box-height) * 0.03) calc(
+      var(--box-height) * 0.9
+    ) calc(var(--box-height) * 0.07);
+}
+
+.carouselInner {
+  grid-row: 2/3; /* asociado al grid carousel */
+
+  height: calc(var(--box-height) * 0.9);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+ /*  padding-left: calc(var(--box-width) * 0.05); */
+}
+
+.indicators {
+  grid-row: 3/4; /* asociado al grid carousel */
+  width: calc(var(--box-width) * 0.25);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding-left: calc(var(--box-width) * 0.35);
+}
+
+.item {
+  display: none;
+}
+
+.active {
+  display: flex;
+  font-size: 2.5rem;
+  flex-direction: row;
+  padding-top: 5%;
+  text-align: center;
+  }
+
+.previous {
+  position: absolute;
+  left: 0px;
+  top: 50%;
+}
+
+.next {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+}
+
+.circle {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #ff5f5f;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.circleActive {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #ff5f5f;
+  border-radius: 50%;
+  margin: auto;
+  background-color: #8c1010;
+}
+
+.btnChevron {
+    background-color: white;
+    opacity: 0.2;
+    border: 0px;
+}
+
+.btnChevron:hover{
+    background-color:#ffc3c3;
+    opacity: 0.3;
+    border: 0px;
+}
+
+
+ol>button{
+    opacity: 0.9;
+}
+
+/* ol>button:hover{
+    background-color: grey;
+} 
+ */

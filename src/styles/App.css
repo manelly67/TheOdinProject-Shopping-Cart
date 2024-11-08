@@ -1,0 +1,52 @@
+#root {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#root > header {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#root > nav {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100px;
+    align-items: center;
+}
+
+#root > section {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+  
+  .iconImg {
+    height: 30px;
+    width: auto;
+  }
+
+/*buttons*/
+
+.themeButton {
+    position: absolute;
+    top: 4%;
+    right: 3%;
+    z-index: 1;
+  
+    transition: transform 250ms ease-in-out;
+  }
+  
+  .themeButton:hover {
+    transform: scale(1.1);
+  }
+  
+  .themeButton:active {
+    transform: scale(1.1);
+    
+  }
