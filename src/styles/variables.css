@@ -1,24 +1,7 @@
-.light {
-    --color-bg-first: #f3f7f8;
-    --color-bg-header: #6f92a1;
-    --color-bg-section: #f3f7f8;
-    --color-bg-article: #e1e9ec;
-    --color-article-shadow: #6f92a1;
-    --color-bg-second: #6f92a1;
-    --color-base-text-title: #333e46;
-    --color-base-text: #394751;
-    --color-base-text-article: #333e46;
-  }
   
-  .dark {
-    --color-bg-first: #517382;
-    --color-bg-header: #517382;
-    --color-bg-section: #517382;
-    --color-bg-article: #394751;
-    --color-article-shadow: #e1e9ec;
-    --color-bg-second: #517382;
-    --color-base-text-title: #f3f7f8;
-    --color-base-text: #f3f7f8;
-    --color-base-text-article: #f3f7f8;
+  :root {
+    --color-for-gadgets-1:#ff5f5f;
+    --color-for-gadgets-2:#8c1010;
+    --color-for-gadgets-3:#ffc3c3;
+    --color-for-gadgets-white:white;
   }
-  

@@ -39,8 +39,9 @@ const Carousel = (props) => {
   const [activeSlide, setActiveSlide] = useState(null);
   /*   const [circlesButtons,setCirclesButtons] = useState([]);
   const [activeButton, setActiveButton] = useState(null);*/
-  const arrayCategory = props.arrayCategory;
-  const first = props.arrayCategory[0];
+  
+  const { arrayCategory } = props;
+  const [first] = props.arrayCategory;
   const rest = shiftArray(props.arrayCategory);
 
   function shiftArray(array) {
@@ -94,8 +95,9 @@ const Carousel = (props) => {
   return (
     <>
       <div className={container}>
-        <h2 style={{ textAlign: 'center' }}>Carousel Example</h2>
-        <div id="myCarousel" className={carousel}>
+        <h2 style={{ textAlign: 'center' }}>New Arrivals</h2>
+        <div style={{ display: 'flex', justifyContent:'center' }}>
+        <div id="myCarousel" className={carousel} >
           <div className={carouselInner}>
             <div className={`${item} ${active}`}>
               <h3>{first}</h3>
@@ -137,6 +139,9 @@ const Carousel = (props) => {
             ></img>
           </button>
         </div>
+
+        </div>
+        
       </div>
     </>
   );

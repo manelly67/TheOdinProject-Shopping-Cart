@@ -34,6 +34,7 @@ export default [
         { allowConstantExport: true },
       ],
       'react/prop-types': 'off',
+      'prefer-destructuring':['error',{'array':true,'object':true},{'enforceForRenamedProperties':false}],
     },
   },
 ];

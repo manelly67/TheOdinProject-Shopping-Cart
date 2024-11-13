@@ -34,6 +34,7 @@ function carouselScript(arg1, arg2, arg3, arg4, arg5) {
           circle.classList.add(circleStyle);
           circle.setAttribute('data', num + 1);
           circle.setAttribute('id', `circle${num + 1}`);
+          circle.setAttribute('tabindex',-1);
           arrayCircles.push(circle);
           divIndicators.appendChild(circle);
         });
@@ -48,7 +49,7 @@ function getPreviousSlide(arg1, arg2) {
   console.log('soy la funcion previous');
   console.log(arg1);
   console.log(arg2);
-  let slideActive = arg1[0];
+  let [ slideActive ] = arg1;
   let arraySlides = arg2;
 
   switch (arraySlides.length !== 0) {
@@ -72,7 +73,7 @@ function getNextSlide(arg1, arg2) {
   console.log('soy la funcion next');
   console.log(arg1);
   console.log(arg2);
-  let slideActive = arg1[0];
+  let [ slideActive ] = arg1;
   let arraySlides = arg2;
 
   switch (arraySlides.length !== 0) {
@@ -99,7 +100,7 @@ function switchActive(arg1, arg2, arg3, arg4, arg5) {
   console.log('soy la funcion swicht');
   console.log(arg1);
   console.log(arg3, arg5);
-  let tobeInactive = arg1[0];
+  let [ tobeInactive ] = arg1;
   let tobeActive = arg2;
   let active = arg3;
   // arg4 is the useState setSlides
@@ -115,7 +116,7 @@ function switchActive(arg1, arg2, arg3, arg4, arg5) {
 function fillActiveCircle(arg1, arg2, arg3) {
   console.log('function fill active circle');
   console.log(arg1);
-  let slideActive = arg1[0];
+  let [ slideActive ] = arg1;
   console.log(slideActive);
   // arg2 is the style circle active - arg3 is the style circle
   switch (slideActive !== null) {
@@ -136,7 +137,7 @@ function fillActiveCircle(arg1, arg2, arg3) {
 function clearCircle(arg1, arg2, arg3) {
   console.log('function clear circle');
   console.log(arg1);
-  let slideActive = arg1[0];
+  let [ slideActive ] = arg1;
   console.log(slideActive);
   // arg2 is the style circle active - arg3 is the style circle
   switch (slideActive !== null) {

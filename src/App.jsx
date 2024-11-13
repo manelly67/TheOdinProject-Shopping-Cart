@@ -3,14 +3,15 @@ import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import './styles/App.css';
-import themeStyles from './styles/Themes.module.css';
+import styles from './styles/Themes.module.css';
 import { urlAddresses } from './assets/urlAddresses';
 import { mockData } from './assets/mockData';
+import { name } from './assets/text-content';
 import changeTheme from './assets/images/theme-light-dark.png';
 
 /* setting the theme light-dark */
 const { light, dark, formatHeader, formatFirst, formatArticle, formatSection, contrastStyle } =
-  themeStyles;
+  styles;
 const root = document.getElementById('root');
 root.classList.add(formatFirst);
 root.className = light;
@@ -40,7 +41,7 @@ function App() {
     }
     return temp;
   };
-
+  
   const [itemsList, setItemsList] = useState(initialList);
 /* ESTA FUNCIONANDO - UTILIZAR POR LOS MOMENTOS MOCK DATA
   useEffect(() => {
@@ -124,7 +125,7 @@ if (!didInit) {
   return (
     <>
       <header className={formatHeader}>
-        <h1>The 500&apos;store</h1>
+        <h1>The {name}</h1>
         <button
           className={`themeButton ${contrastStyle}`}
           style={{ borderRadius: '30px' }}
@@ -147,11 +148,14 @@ if (!didInit) {
           <Link to="homepage">Home</Link>
         </div>
         <div>
-          <Link to="storepage">500Store Products</Link>
+          <Link to="storepage">{name} Products</Link>
         </div>
+       {/*  <div>
+          <Link to="cartpage">Prueba</Link>
+        </div> */}
       </nav>
       <section className={formatSection} style={{minHeight:'500px'}}>
-      <Outlet context={{ formatArticle, formatSection, itemsList }} />
+      <Outlet context={{ formatArticle, formatSection, itemsList , name}} />
       </section>
       
     </>

@@ -3,6 +3,7 @@ import ErrorPage from './ErrorPage';
 import Homepage from './Homepage';
 import StorePage from './Store';
 import CartPage from './Cart';
+import ProductDetails from './ProductDetails';
 
 const routes = [
   {
@@ -20,11 +21,22 @@ const routes = [
       {
         path: 'storepage',
         element: <StorePage />,
-      },
+        children:[
+          {
+            path: 'product',
+            element: <ProductDetails />,
+          },
+          
+        ],
+      },  
     ],
+    
     errorElement: <ErrorPage />,
   },
-  
+  {
+    path: 'cartpage',
+    element: <CartPage />,
+  },
 ];
 
 export default routes;

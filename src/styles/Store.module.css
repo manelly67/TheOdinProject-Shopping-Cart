@@ -1,0 +1,159 @@
+@import './variables.css';
+
+.card {
+  width: 200px;
+  height: 320px;
+}
+
+.card {
+  display: grid;
+  grid-row: 205px 70px 45px;
+  align-items: center;
+  gap: 10px;
+}
+
+.card > div > p {
+  font-size: 1.1em;
+  text-transform: capitalize;
+}
+
+span {
+  color: var(--color-for-gadgets-2);
+  font-weight: 800;
+  text-shadow: var(--color-for-gadgets-white); /*ARREGLAR LA SOMBRA DESPUES*/
+  font-size: 1.2em;
+}
+
+.lastLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.lastLine>a{
+  background-color: white;
+  padding: 2px;
+}
+
+.lastLine > a,
+.divDetails > article > div > button {
+  color: var(--color-for-gadgets-2);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.lastLine > a:hover,
+.divDetails > article > div > button:hover {
+  color: var(--color-for-gadgets-3);
+  background-color: var(--color-for-gadgets-2);
+}
+
+.divDetails > article > div > button {
+    transform: translate(210px,-90%);
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
+
+.divDetails {
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.divDetails > article {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  width: 100%;
+  height: 100%;
+  min-width: 300px;
+  min-height: 500px;
+}
+
+
+.divDetails > article > section{
+  display: flex;
+  width: 95%;
+  flex-direction: column;
+  align-items: center;
+  gap:15px;
+}
+
+.divDetails > article > section > div{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+ }
+
+.divDetails > aside {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  width: 100%;
+  min-width: 300px;
+  height: 200px;
+}
+
+@media (min-width: 421px) {
+  .divDetails {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 15px;
+  }
+
+  .divDetails > article {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  .divDetails > aside {
+    height: 100%;
+    min-height: 500px;
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+
+  .divDetails > article > div > button {
+    transform: translate(400px,-90%);
+  }
+
+  .divDetails > article > section{
+    display:grid;
+    height: 90%;
+    width: 95%;
+    padding-left: 30px;
+    grid-template-columns: 255px 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap:10px;
+  }
+  .divDetails > article > section > h2{
+   grid-row: 1/2;
+   grid-column: 1/2;
+   padding-left: 5%;
+  }
+  .divDetails > article > section > img{
+    grid-row: 2/5;
+    grid-column: 1/2;
+   align-items: center;
+   padding-left: 5%;
+   }
+   .divDetails > article > section > div{
+    grid-row: 1/5;
+    grid-column: 2/3;
+  padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+   }
+
+}

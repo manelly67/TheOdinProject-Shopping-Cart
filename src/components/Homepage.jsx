@@ -3,7 +3,7 @@ import Carousel from "./Carousel";
 
 const Homepage = () => {
 
-const {formatArticle,formatSection,itemsList} = useOutletContext();
+const {formatSection,itemsList,name} = useOutletContext();
 console.log(itemsList);
 
 const arrayCategory =  uniqueArray(itemsList);
@@ -19,7 +19,7 @@ console.log(arrayCategory);
 
   return (
     <div className={formatSection}>
-      <h2 style={{textAlign:'center'}}>Hello from Homepage!</h2>
+      <h2 style={{textAlign:'center'}}>In {name} there is always something for you!</h2>
       <br></br>
       <Carousel arrayCategory={arrayCategory}/>
     </div>

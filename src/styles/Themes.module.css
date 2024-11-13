@@ -1,34 +1,10 @@
-/*  choose later - blue
-.light {
-    --color-bg-first: #f3f7f8;
-    --color-bg-header: #6f92a1;
-    --color-bg-section: #f3f7f8;
-    --color-bg-article: #e1e9ec;
-    --color-article-shadow: #6f92a1;
-    --color-bg-second: #6f92a1;
-    --color-base-text-title: #333e46;
-    --color-base-text: #394751;
-    --color-base-text-article: #333e46;
-  }
-  
-  .dark {
-    --color-bg-first: #517382;
-    --color-bg-header: #517382;
-    --color-bg-section: #517382;
-    --color-bg-article: #394751;
-    --color-article-shadow: #e1e9ec;
-    --color-bg-second: #517382;
-    --color-base-text-title: #f3f7f8;
-    --color-base-text: #f3f7f8;
-    --color-base-text-article: #f3f7f8;
-  }
- */ 
+@import './variables.css';
 
  .light {
     --color-bg-first: #500202;
     --color-bg-header: #500202;
     --color-bg-section: white;
-    --color-bg-article: #ffc3c3;
+    --color-bg-article: #fff0f0;
     --color-article-shadow: #ff5f5f;
     --color-bg-second: #ff5f5f;
     --color-base-text-title: #fff0f0;
@@ -48,7 +24,7 @@
     --color-base-text-title: #fff0f0;
     --color-base-text: #fff0f0;
     --color-base-text-article: #fff0f0;
-    --opacity:0.5;
+    --opacity:0.9;
     --color-button:#fff0f0;
   }
 
@@ -72,7 +48,6 @@
     color: var(--color-base-text);
 }
 
-
 .contrastStyle {
   background-color: var(--color-button);
   opacity: var(--opacity);
@@ -81,4 +56,9 @@
 a {
   color: var(--color-base-text-title);
   font-size: 1.5rem;
+}
+
+a:hover {
+  color: var(--color-for-gadgets-1);
+  opacity: 0.6;
 }
