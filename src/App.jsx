@@ -8,10 +8,18 @@ import { urlAddresses } from './assets/urlAddresses';
 import { mockData } from './assets/mockData';
 import { name } from './assets/text-content';
 import changeTheme from './assets/images/theme-light-dark.png';
+import DivCartIcon from './components/DivCartIcon';
 
 /* setting the theme light-dark */
-const { light, dark, formatHeader, formatFirst, formatArticle, formatSection, contrastStyle } =
-  styles;
+const {
+  light,
+  dark,
+  formatHeader,
+  formatFirst,
+  formatArticle,
+  formatSection,
+  contrastStyle,
+} = styles;
 const root = document.getElementById('root');
 root.classList.add(formatFirst);
 root.className = light;
@@ -23,7 +31,8 @@ function setTheme() {
 }
 
 let didInit = false;
-
+const emptyCart = [{ itemCode: '', numberItem: 0, priceCode: 0, totalLine: 0 }];
+  
 function App() {
   /* setting initial fetch */
   const initialList = () => {
@@ -41,9 +50,22 @@ function App() {
     }
     return temp;
   };
-  
+
   const [itemsList, setItemsList] = useState(initialList);
-/* ESTA FUNCIONANDO - UTILIZAR POR LOS MOMENTOS MOCK DATA
+  const [ addingInCart, setAddingInCart] = useState(emptyCart);
+  const [initial, setInitial] = useState(true);
+ 
+  
+  let numberOfItems = addingInCart.map((e)=> e['numberItem']).reduce((total, currentItem) => {
+    return total + currentItem;
+    }, 0);
+
+  console.log(numberOfItems);
+  function handleClick(arg) {
+    arg(true); // initial
+  }
+
+  /* ESTA FUNCIONANDO - UTILIZAR POR LOS MOMENTOS MOCK DATA
   useEffect(() => {
     if (!didInit) {
       didInit = true;
@@ -54,38 +76,39 @@ function App() {
     }
   });
 */
-useEffect(() => {
-if (!didInit) {
-  didInit = true;
-  for (let i = 0; i < mockData.length; ++i) {
-    let cardData = mockData[i];
-    let item = {
-      id: i+1,
-      storeId: `${cardData['id']}`,
-      title: `${cardData['title']}`,
-      price: cardData['price'],
-      category: `${cardData['category']}`,
-      description: `${cardData['description']}`,
-      image: `${cardData['image']}`,
-    };
+  useEffect(() => {
+    if (!didInit) {
+      didInit = true;
+      for (let i = 0; i < mockData.length; ++i) {
+        let cardData = mockData[i];
+        let item = {
+          id: i + 1,
+          storeId: `${cardData['id']}`,
+          title: `${cardData['title']}`,
+          price: cardData['price'],
+          category: `${cardData['category']}`,
+          description: `${cardData['description']}`,
+          image: `${cardData['image']}`,
+        };
 
-    let temp = [...itemsList];
-    temp.map((e) => {
-      if (Number(e.id) === Number(item.id)) {
-        e['storeId'] = item['storeId'];
-        e['title'] = item['title'];
-        e['price'] = item['price'];
-        e['category'] = item['category'];
-        e['description'] = item['description'];
-        e['image'] = item['image'];
+        let temp = [...itemsList];
+        temp.map((e) => {
+          if (Number(e.id) === Number(item.id)) {
+            e['storeId'] = item['storeId'];
+            e['title'] = item['title'];
+            e['price'] = item['price'];
+            e['category'] = item['category'];
+            e['description'] = item['description'];
+            e['image'] = item['image'];
+          }
+        });
+        setItemsList(temp);
       }
-    });
-    setItemsList(temp);      }
-}
-},[itemsList]);
-//BORRAR AL DEJAR DE UTILIZAR MOCK DATA
+    }
+  }, [itemsList]);
+  //BORRAR AL DEJAR DE UTILIZAR MOCK DATA
 
-/*  FUNCIONA BIEN ACTIVAR AL DEJAR DE UTILIZAR MOCK DATA
+  /*  FUNCIONA BIEN ACTIVAR AL DEJAR DE UTILIZAR MOCK DATA
    async function getData(arg1, arg2) {
     // arg1 is the card arg2 is the url for that card
     try {
@@ -120,7 +143,8 @@ if (!didInit) {
       console.log(error);
     }
   }
- */    
+ */
+  
 
   return (
     <>
@@ -148,16 +172,28 @@ if (!didInit) {
           <Link to="homepage">Home</Link>
         </div>
         <div>
-          <Link to="storepage">{name} Products</Link>
+          <div>
+            <Link to="storepage" onClick={() => handleClick(setInitial)}>
+              {name} Products
+            </Link>
+            <DivCartIcon numberOfItems={numberOfItems} />
+          </div>
         </div>
-       {/*  <div>
-          <Link to="cartpage">Prueba</Link>
-        </div> */}
       </nav>
-      <section className={formatSection} style={{minHeight:'500px'}}>
-      <Outlet context={{ formatArticle, formatSection, itemsList , name}} />
+      <section className={formatSection} style={{ minHeight: '500px' }}>
+        <Outlet
+          context={{
+            formatArticle,
+            formatSection,
+            itemsList,
+            name,
+            initial,
+            setInitial,
+            addingInCart,
+            setAddingInCart,
+          }}
+        />
       </section>
-      
     </>
   );
 }

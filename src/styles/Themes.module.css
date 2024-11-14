@@ -38,7 +38,7 @@
     color: var(--color-base-text-title);
 }
 
-.formatArticle{
+.formatArticle, aside>section>div>button{
     background-color: var(--color-bg-article);
     color: var(--color-base-text-article);
 }
@@ -62,3 +62,10 @@ a:hover {
   color: var(--color-for-gadgets-1);
   opacity: 0.6;
 }
+
+aside>section>div>button:hover{
+  border: 2px solid var(--color-for-gadgets-1);
+  color: var(--color-for-gadgets-1);
+  transform: scale(1.2);
+ }
+ 
