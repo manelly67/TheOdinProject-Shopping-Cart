@@ -58,3 +58,40 @@ const mockData = [
 ];
 
 export { mockData };
+
+/* WHEN USING MOCK DATA ADD THIS LOGIC IN THE App.jsx file
+
+  useEffect(() => {
+    if (!didInit) {
+      didInit = true;
+      for (let i = 0; i < mockData.length; ++i) {
+        let cardData = mockData[i];
+        let item = {
+          id: i + 1,
+          storeId: `${cardData['id']}`,
+          title: `${cardData['title']}`,
+          price: cardData['price'],
+          category: `${cardData['category']}`,
+          description: `${cardData['description']}`,
+          image: `${cardData['image']}`,
+        };
+
+        let temp = [...itemsList];
+        temp.map((e) => {
+          if (Number(e.id) === Number(item.id)) {
+            e['storeId'] = item['storeId'];
+            e['title'] = item['title'];
+            e['price'] = item['price'];
+            e['category'] = item['category'];
+            e['description'] = item['description'];
+            e['image'] = item['image'];
+          }
+        });
+        setItemsList(temp);
+      }
+    }
+  }, [itemsList]);
+
+AND USE INSTEAD OF THE FETCH LOGIC
+
+*/

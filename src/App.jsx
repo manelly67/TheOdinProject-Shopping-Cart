@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './styles/App.css';
 import styles from './styles/Themes.module.css';
 import { urlAddresses } from './assets/urlAddresses';
-import { mockData } from './assets/mockData';
+/* import { mockData } from './assets/mockData'; */
 import { name } from './assets/text-content';
 import changeTheme from './assets/images/theme-light-dark.png';
 import DivCartIcon from './components/DivCartIcon';
@@ -65,7 +65,7 @@ function App() {
     arg(true); // initial
   }
 
-  /* ESTA FUNCIONANDO - UTILIZAR POR LOS MOMENTOS MOCK DATA
+
   useEffect(() => {
     if (!didInit) {
       didInit = true;
@@ -75,40 +75,8 @@ function App() {
       }
     }
   });
-*/
-  useEffect(() => {
-    if (!didInit) {
-      didInit = true;
-      for (let i = 0; i < mockData.length; ++i) {
-        let cardData = mockData[i];
-        let item = {
-          id: i + 1,
-          storeId: `${cardData['id']}`,
-          title: `${cardData['title']}`,
-          price: cardData['price'],
-          category: `${cardData['category']}`,
-          description: `${cardData['description']}`,
-          image: `${cardData['image']}`,
-        };
 
-        let temp = [...itemsList];
-        temp.map((e) => {
-          if (Number(e.id) === Number(item.id)) {
-            e['storeId'] = item['storeId'];
-            e['title'] = item['title'];
-            e['price'] = item['price'];
-            e['category'] = item['category'];
-            e['description'] = item['description'];
-            e['image'] = item['image'];
-          }
-        });
-        setItemsList(temp);
-      }
-    }
-  }, [itemsList]);
-  //BORRAR AL DEJAR DE UTILIZAR MOCK DATA
 
-  /*  FUNCIONA BIEN ACTIVAR AL DEJAR DE UTILIZAR MOCK DATA
    async function getData(arg1, arg2) {
     // arg1 is the card arg2 is the url for that card
     try {
@@ -143,7 +111,7 @@ function App() {
       console.log(error);
     }
   }
- */
+ 
   
 
   return (
