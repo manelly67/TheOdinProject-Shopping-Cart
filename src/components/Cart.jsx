@@ -52,6 +52,9 @@ const CartPage = (props) => {
 
   const [count, setCount] = useState(0);
   const totalItem = count * props.itemPrice;
+  let totalAmount = props.addingInCart.map((e)=> e['totalLine']).reduce((total, currentItem) => {
+    return total + currentItem;
+    }, 0);
 
   return (
     <>
@@ -144,6 +147,9 @@ const CartPage = (props) => {
           </button>
         </div>
 
+        <div style={{paddingTop:'10px'}}>
+            <p>{`SHOPPING CART = US$ ${totalAmount}`}</p>
+        </div>
         <div
           style={{
             width: '100%',
