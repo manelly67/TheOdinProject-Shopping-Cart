@@ -1,16 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Outlet, useOutletContext, useNavigate } from 'react-router-dom';
 
 import styles from '../styles/Store.module.css';
 
 const StorePage = () => {
   const navigate = useNavigate();
-  const { formatArticle, itemsList } = useOutletContext();
+  const { formatArticle, itemsList, initial, setInitial, addingInCart, setAddingInCart } = useOutletContext();
   const { card, lastLine, hide, show, divDetails } = styles;
   const [selecItem, useSelecItem] = useState(null);
 
-  console.log(selecItem);
+  useEffect(() => {
+    switch(initial){
+      case true:
+        showList();
+        break;
+      case false:
+        hideList();
+        break;
+    }
+    
+  });
 
+  console.log(selecItem);
+  console.log(itemsList);
   function hideList() {
     document.getElementById('productList').className = '';
     document.getElementById('productList').classList.add(hide);
@@ -25,9 +37,10 @@ const StorePage = () => {
     navigate('/storepage/product');
   }
 
-  function handleClick(event,arg){
-    let temp =  event.currentTarget.id;
-    arg(temp);
+  function handleClick(event, arg1, arg2) {
+    let temp = event.currentTarget.id;
+    arg1(temp);
+    arg2(false);
   }
 
   return (
@@ -61,9 +74,8 @@ const StorePage = () => {
                     <button
                       id={x['id']}
                       onClick={(event) => {
-                       handleClick(event,useSelecItem);
+                        handleClick(event, useSelecItem, setInitial);
                         navigateToProduct();
-                        hideList();
                       }}
                     >
                       see more
@@ -83,7 +95,10 @@ const StorePage = () => {
             selecItem,
             itemsList,
             showList,
+            setInitial,
             divDetails,
+            addingInCart,
+            setAddingInCart,
           }}
         />
       </div>

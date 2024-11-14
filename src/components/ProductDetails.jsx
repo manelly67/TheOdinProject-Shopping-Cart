@@ -7,8 +7,10 @@ const ProductDetails = () => {
     navigate,
     selecItem,
     itemsList,
-    showList,
+    setInitial,
     divDetails,
+    addingInCart,
+    setAddingInCart,
   } = useOutletContext();
   console.log(selecItem);
   console.log(itemsList);
@@ -21,6 +23,15 @@ const ProductDetails = () => {
       : Number(productForDisplay['price']);
   console.log(itemPrice);
   console.log(productForDisplay);
+  console.log(itemsList);
+  const itemCode =
+  productForDisplay['storeId'] === undefined
+    ? 0
+    : productForDisplay['storeId'];  
+
+  function handleClick(arg){
+    arg(true); //initial
+  }
 
   return (
     <>
@@ -30,7 +41,7 @@ const ProductDetails = () => {
             <button
               onClick={() => {
                 navigate(-1);
-                showList();
+                handleClick(setInitial);
               }}
             >
               go back
@@ -73,7 +84,13 @@ const ProductDetails = () => {
           </section>
         </article>
         <aside>
-          <CartPage />
+          <CartPage
+            itemPrice={itemPrice}
+            itemCode={itemCode}
+            formatArticle={formatArticle}
+            addingInCart={addingInCart}
+            setAddingInCart={setAddingInCart}
+          />
         </aside>
       </div>
     </>

@@ -6,7 +6,6 @@ import {
   switchActive,
   fillActiveCircle,
   clearCircle,
- /*  getActiveButton, */
 } from './carouselScript';
 import { useState, useEffect } from 'react';
 import leftChevron from '../assets/images/chevron-left.png';
