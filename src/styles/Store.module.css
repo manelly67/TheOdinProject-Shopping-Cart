@@ -109,7 +109,8 @@ gap: 5px;
 padding-top: 20px;
 padding-left: 15px;
 }
-/* 
+
+
 #productList > ul {    
   animation: slide-in 1.7s both;
 }
@@ -122,7 +123,7 @@ padding-left: 15px;
   }
 }
 
- */
+
 @media (min-width: 770px) {
   .divDetails {
     margin-top: 35px;
