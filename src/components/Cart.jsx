@@ -1,12 +1,6 @@
 import DivCartIcon from './DivCartIcon';
 import { useState } from 'react';
 
-/*
-const productOfAllNums = arr.reduce((total, currentItem) => {
-  return total * currentItem;
-  }, 1);
-*/
-
 function addToArray(arg1, arg2, arg3, arg4, addingInCart, setAddingInCart) {
   switch (arg2 !== 0) {
     case true:
@@ -24,7 +18,7 @@ function addToArray(arg1, arg2, arg3, arg4, addingInCart, setAddingInCart) {
       break;
 
     case false:
-      console.log('nothing to add');
+      alert('nothing to add - increase number of items');
       break;
   }
 }
@@ -48,8 +42,7 @@ function decrease(count, setCount) {
 }
 
 const CartPage = (props) => {
-  console.log(props.addingInCart);
-
+  
   const [count, setCount] = useState(0);
   const totalItem = count * props.itemPrice;
   let totalAmount = props.addingInCart.map((e)=> e['totalLine']).reduce((total, currentItem) => {
@@ -92,6 +85,8 @@ const CartPage = (props) => {
               marginLeft: '5px',
               fontSize: '1.3rem',
               fontWeight: '800',
+              display:'flex',
+              alignItems:'center',
             }}
             onClick={() => {
               decrease(count, setCount);
@@ -153,7 +148,7 @@ const CartPage = (props) => {
         <div
           style={{
             width: '100%',
-            paddingTop: '30px',
+            paddingTop: '15px',
             display: 'flex',
             justifyContent: 'center',
           }}

@@ -19,8 +19,14 @@
   justify-content: space-around;
   height: 100px;
   align-items: center;
-  gap:15px;
+  gap: 15px;
 }
+
+
+#storeLink {
+  width: 120px;
+}
+
 
 #root > nav > div > div {
   display: flex;
@@ -29,6 +35,11 @@
 }
 
 @media (min-width: 421px) {
+  
+  #storeLink {
+    width: 230px;
+  }
+  
   #root > nav > div > div {
     display: flex;
     flex-direction: row;
@@ -70,12 +81,16 @@
 /*buttons*/
 
 .themeButton {
-  position: absolute;
-  top: 4%;
-  right: 3%;
   z-index: 1;
-
   transition: transform 250ms ease-in-out;
+}
+
+@media (min-width: 421px) {
+  .themeButton {
+    position: absolute;
+    top: 4%;
+    right: 3%;
+  }
 }
 
 .themeButton:hover {

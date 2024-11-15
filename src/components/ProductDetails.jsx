@@ -12,8 +12,7 @@ const ProductDetails = () => {
     addingInCart,
     setAddingInCart,
   } = useOutletContext();
-  console.log(selecItem);
-  console.log(itemsList);
+  
   const [productForDisplay] = itemsList.filter(
     (item) => item['id'] === Number(selecItem)
   );
@@ -21,9 +20,7 @@ const ProductDetails = () => {
     productForDisplay['price'] === undefined
       ? 0
       : Number(productForDisplay['price']);
-  console.log(itemPrice);
-  console.log(productForDisplay);
-  console.log(itemsList);
+  
   const itemCode =
   productForDisplay['storeId'] === undefined
     ? 0

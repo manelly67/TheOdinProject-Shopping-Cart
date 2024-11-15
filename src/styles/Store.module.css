@@ -20,7 +20,7 @@
 span {
   color: var(--color-for-gadgets-2);
   font-weight: 800;
-  text-shadow: var(--color-for-gadgets-white); /*ARREGLAR LA SOMBRA DESPUES*/
+  text-shadow: 1px 0.5px 0.5px var(--color-for-gadgets-white);
   font-size: 1.2em;
 }
 
@@ -98,7 +98,7 @@ span {
   grid-column: 1/2;
   width: 100%;
   min-width: 300px;
-  height: 200px;
+  height: 285px;
 }
 
 .divDetails > aside > section {
@@ -109,8 +109,8 @@ gap: 5px;
 padding-top: 20px;
 padding-left: 15px;
 }
-
-#productList > ul {    /*REVISAR SI ESTO ESTA HACIENDO ALGO O NO*/
+/* 
+#productList > ul {    
   animation: slide-in 1.7s both;
 }
 @keyframes slide-in {
@@ -122,8 +122,8 @@ padding-left: 15px;
   }
 }
 
-
-@media (min-width: 421px) {
+ */
+@media (min-width: 770px) {
   .divDetails {
     margin-top: 35px;
     display: grid;

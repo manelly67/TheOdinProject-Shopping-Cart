@@ -60,7 +60,6 @@ function App() {
     return total + currentItem;
     }, 0);
 
-  console.log(numberOfItems);
   function handleClick(arg) {
     arg(true); // initial
   }
@@ -141,7 +140,7 @@ function App() {
         </div>
         <div>
           <div>
-            <Link to="storepage" onClick={() => handleClick(setInitial)}>
+            <Link id='storeLink'  to="storepage" onClick={() => handleClick(setInitial)}>
               {name} Products
             </Link>
             <DivCartIcon numberOfItems={numberOfItems} />

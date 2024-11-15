@@ -4,7 +4,6 @@ import Carousel from "./Carousel";
 const Homepage = () => {
 
 const {formatSection,itemsList,name} = useOutletContext();
-console.log(itemsList);
 
 const arrayCategory =  uniqueArray(itemsList);
 
@@ -15,7 +14,6 @@ function uniqueArray(itemsList){
   )
 }
 
-console.log(arrayCategory);
 
   return (
     <div className={formatSection}>

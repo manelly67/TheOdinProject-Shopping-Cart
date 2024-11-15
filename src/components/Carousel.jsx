@@ -1,4 +1,3 @@
-// REVISAR LUEGO FUNCIONA BIEN SIN INCLUIR LOS BOTONES
 import {
   carouselScript,
   getPreviousSlide,
@@ -73,7 +72,6 @@ const Carousel = (props) => {
   useEffect(() => {
     const activeSlide = Array.from(document.querySelectorAll(`.${active}`));
     setActiveSlide(activeSlide);
-    console.log(activeSlide);
     fillActiveCircle(activeSlide, circleActive, circle);
    
   }, [slides]);

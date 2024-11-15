@@ -21,8 +21,6 @@ const StorePage = () => {
     
   });
 
-  console.log(selecItem);
-  console.log(itemsList);
   function hideList() {
     document.getElementById('productList').className = '';
     document.getElementById('productList').classList.add(hide);
