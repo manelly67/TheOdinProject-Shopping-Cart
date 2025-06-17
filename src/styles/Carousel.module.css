@@ -10,7 +10,7 @@
   height: var(--box-height);
   position: relative;
   top: calc(var(--box-height) * 0.02);
-  border: 2px solid #500000;
+ /*  border: 2px solid #500000; */
   display: grid;
   grid-template-rows:
     calc(var(--box-height) * 0.03) calc(var(--box-height) * 0.9)
