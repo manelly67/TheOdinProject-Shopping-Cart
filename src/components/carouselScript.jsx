@@ -34,6 +34,7 @@ function carouselScript(arg1, arg2, arg3, arg4, arg5) {
           circle.setAttribute('data', num + 1);
           circle.setAttribute('id', `circle${num + 1}`);
           circle.setAttribute('tabindex',-1);
+          circle.setAttribute('aria-label','carousel indicator');
           arrayCircles.push(circle);
           divIndicators.appendChild(circle);
         });
