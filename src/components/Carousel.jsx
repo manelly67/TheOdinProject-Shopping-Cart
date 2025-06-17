@@ -35,9 +35,6 @@ const {
 const Carousel = (props) => {
   const [slides, setSlides] = useState([]);
   const [activeSlide, setActiveSlide] = useState(null);
-  /*   const [circlesButtons,setCirclesButtons] = useState([]);
-  const [activeButton, setActiveButton] = useState(null);*/
-  
   const { arrayCategory } = props;
   const [first] = props.arrayCategory;
   const rest = shiftArray(props.arrayCategory);
@@ -66,14 +63,12 @@ const Carousel = (props) => {
       circleActive,
       setSlides
     );
-    
   }, [arrayCategory]);
 
   useEffect(() => {
     const activeSlide = Array.from(document.querySelectorAll(`.${active}`));
     setActiveSlide(activeSlide);
     fillActiveCircle(activeSlide, circleActive, circle);
-   
   }, [slides]);
 
   useEffect(() => {
@@ -87,58 +82,56 @@ const Carousel = (props) => {
     return () => {
       clearInterval(intervalId);
     };
-  }, [slides,activeSlide]);
+  }, [slides, activeSlide]);
 
   return (
     <>
       <div className={container}>
         <h2 style={{ textAlign: 'center' }}>New Arrivals</h2>
-        <div style={{ display: 'flex', justifyContent:'center' }}>
-        <div id="myCarousel" className={carousel} >
-          <div className={carouselInner}>
-            <div className={`${item} ${active}`}>
-              <h3>{first}</h3>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div id="myCarousel" className={carousel}>
+            <div className={carouselInner}>
+              <div className={`${item} ${active}`}>
+                <h3>{first}</h3>
+              </div>
+              {listRestItems === undefined ? <>{null}</> : <>{listRestItems}</>}
             </div>
-            {listRestItems === undefined ? <>{null}</> : <>{listRestItems}</>}
+            <ol id="indicators" className={indicators}></ol>
+
+            <button
+              id="previous"
+              className={`${previous} ${btnChevron}`}
+              onClick={() => {
+                clearCircle(activeSlide, circleActive, circle);
+                let tempSlide = getPreviousSlide(activeSlide, slides);
+                switchActive(activeSlide, tempSlide, active, setSlides, item);
+              }}
+            >
+              <img
+                src={leftChevronImg.src}
+                width="40%"
+                height="25%"
+                alt="left"
+              ></img>
+            </button>
+            <button
+              id="next"
+              className={`${next} ${btnChevron}`}
+              onClick={() => {
+                clearCircle(activeSlide, circleActive, circle);
+                let tempSlide = getNextSlide(activeSlide, slides);
+                switchActive(activeSlide, tempSlide, active, setSlides, item);
+              }}
+            >
+              <img
+                src={rightChevronImg.src}
+                width="40%"
+                height="25%"
+                alt="right"
+              ></img>
+            </button>
           </div>
-          <ol id="indicators" className={indicators}></ol>
-
-          <button
-            id="previous"
-            className={`${previous} ${btnChevron}`}
-            onClick={() => {
-              clearCircle(activeSlide, circleActive, circle);
-              let tempSlide = getPreviousSlide(activeSlide, slides);
-              switchActive(activeSlide, tempSlide, active, setSlides, item);
-            }}
-          >
-            <img
-              src={leftChevronImg.src}
-              width="40%"
-              height="25%"
-              alt="left"
-            ></img>
-          </button>
-          <button
-            id="next"
-            className={`${next} ${btnChevron}`}
-            onClick={() => {
-              clearCircle(activeSlide, circleActive, circle);
-              let tempSlide = getNextSlide(activeSlide, slides);
-              switchActive(activeSlide, tempSlide, active, setSlides, item);
-            }}
-          >
-            <img
-              src={rightChevronImg.src}
-              width="40%"
-              height="25%"
-              alt="right"
-            ></img>
-          </button>
         </div>
-
-        </div>
-        
       </div>
     </>
   );

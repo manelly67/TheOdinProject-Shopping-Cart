@@ -9,9 +9,9 @@ const routes = [
   {
     path: '/',
     element: <App />,
-    children:[
+    children: [
       {
-        index:true,
+        index: true,
         element: <Homepage />,
       },
       {
@@ -21,16 +21,15 @@ const routes = [
       {
         path: 'storepage',
         element: <StorePage />,
-        children:[
+        children: [
           {
             path: 'product',
             element: <ProductDetails />,
           },
-          
         ],
-      },  
+      },
     ],
-    
+
     errorElement: <ErrorPage />,
   },
   {

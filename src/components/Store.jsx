@@ -5,12 +5,19 @@ import styles from '../styles/Store.module.css';
 
 const StorePage = () => {
   const navigate = useNavigate();
-  const { formatArticle, itemsList, initial, setInitial, addingInCart, setAddingInCart } = useOutletContext();
+  const {
+    formatArticle,
+    itemsList,
+    initial,
+    setInitial,
+    addingInCart,
+    setAddingInCart,
+  } = useOutletContext();
   const { card, lastLine, hide, show, divDetails } = styles;
   const [selecItem, useSelecItem] = useState(null);
 
   useEffect(() => {
-    switch(initial){
+    switch (initial) {
       case true:
         showList();
         break;
@@ -18,7 +25,6 @@ const StorePage = () => {
         hideList();
         break;
     }
-    
   });
 
   function hideList() {

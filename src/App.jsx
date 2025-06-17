@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import './styles/App.css';
 import styles from './styles/Themes.module.css';
 import { urlAddresses } from './assets/urlAddresses';
-/* import { mockData } from './assets/mockData'; */
 import { name } from './assets/text-content';
 import changeTheme from './assets/images/theme-light-dark.png';
 import DivCartIcon from './components/DivCartIcon';
@@ -32,7 +31,7 @@ function setTheme() {
 
 let didInit = false;
 const emptyCart = [{ itemCode: '', numberItem: 0, priceCode: 0, totalLine: 0 }];
-  
+
 function App() {
   /* setting initial fetch */
   const initialList = () => {
@@ -52,18 +51,18 @@ function App() {
   };
 
   const [itemsList, setItemsList] = useState(initialList);
-  const [ addingInCart, setAddingInCart] = useState(emptyCart);
+  const [addingInCart, setAddingInCart] = useState(emptyCart);
   const [initial, setInitial] = useState(true);
- 
-  
-  let numberOfItems = addingInCart.map((e)=> e['numberItem']).reduce((total, currentItem) => {
-    return total + currentItem;
+
+  let numberOfItems = addingInCart
+    .map((e) => e['numberItem'])
+    .reduce((total, currentItem) => {
+      return total + currentItem;
     }, 0);
 
   function handleClick(arg) {
     arg(true); // initial
   }
-
 
   useEffect(() => {
     if (!didInit) {
@@ -75,13 +74,12 @@ function App() {
     }
   });
 
-
-   async function getData(arg1, arg2) {
+  async function getData(arg1, arg2) {
     // arg1 is the card arg2 is the url for that card
     try {
-     const response = await fetch(arg2, { mode: 'cors' });
+      const response = await fetch(arg2, { mode: 'cors' });
       const cardData = await response.json();
-      
+
       let number = Number(arg1.slice(4));
 
       let item = {
@@ -110,8 +108,6 @@ function App() {
       console.log(error);
     }
   }
- 
-  
 
   return (
     <>
@@ -140,7 +136,11 @@ function App() {
         </div>
         <div>
           <div>
-            <Link id='storeLink'  to="storepage" onClick={() => handleClick(setInitial)}>
+            <Link
+              id="storeLink"
+              to="storepage"
+              onClick={() => handleClick(setInitial)}
+            >
               {name} Products
             </Link>
             <DivCartIcon numberOfItems={numberOfItems} />

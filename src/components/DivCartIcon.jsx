@@ -16,7 +16,6 @@ const DivCartIcon = (props) => {
         fontWeight: '800',
       }}
     >
-     
       <img src={cartImg.src} width="35px" height="35px" alt="cart-items"></img>
       <p>{props.numberOfItems}</p>
     </div>

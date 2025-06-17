@@ -12,7 +12,7 @@ const ProductDetails = () => {
     addingInCart,
     setAddingInCart,
   } = useOutletContext();
-  
+
   const [productForDisplay] = itemsList.filter(
     (item) => item['id'] === Number(selecItem)
   );
@@ -20,13 +20,13 @@ const ProductDetails = () => {
     productForDisplay['price'] === undefined
       ? 0
       : Number(productForDisplay['price']);
-  
-  const itemCode =
-  productForDisplay['storeId'] === undefined
-    ? 0
-    : productForDisplay['storeId'];  
 
-  function handleClick(arg){
+  const itemCode =
+    productForDisplay['storeId'] === undefined
+      ? 0
+      : productForDisplay['storeId'];
+
+  function handleClick(arg) {
     arg(true); //initial
   }
 

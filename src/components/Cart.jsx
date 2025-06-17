@@ -5,15 +5,15 @@ function addToArray(arg1, arg2, arg3, arg4, addingInCart, setAddingInCart) {
   switch (arg2 !== 0) {
     case true:
       {
-      let itemToAdd = {
-        'itemCode': arg1,
-        'numberItem': arg2,
-        'priceCode': arg3,
-        'totalLine': arg4,
-      };
-      let tempArray = [...addingInCart];
-      tempArray.push(itemToAdd);
-      setAddingInCart(tempArray);
+        let itemToAdd = {
+          itemCode: arg1,
+          numberItem: arg2,
+          priceCode: arg3,
+          totalLine: arg4,
+        };
+        let tempArray = [...addingInCart];
+        tempArray.push(itemToAdd);
+        setAddingInCart(tempArray);
       }
       break;
 
@@ -42,12 +42,14 @@ function decrease(count, setCount) {
 }
 
 const CartPage = (props) => {
-  
   const [count, setCount] = useState(0);
   const totalItem = count * props.itemPrice;
-  let totalAmount = props.addingInCart.map((e)=> e['totalLine']).reduce((total, currentItem) => {
-    return total + currentItem;
-    }, 0).toFixed(2);
+  let totalAmount = props.addingInCart
+    .map((e) => e['totalLine'])
+    .reduce((total, currentItem) => {
+      return total + currentItem;
+    }, 0)
+    .toFixed(2);
 
   return (
     <>
@@ -85,8 +87,8 @@ const CartPage = (props) => {
               marginLeft: '5px',
               fontSize: '1.3rem',
               fontWeight: '800',
-              display:'flex',
-              alignItems:'center',
+              display: 'flex',
+              alignItems: 'center',
             }}
             onClick={() => {
               decrease(count, setCount);
@@ -142,8 +144,8 @@ const CartPage = (props) => {
           </button>
         </div>
 
-        <div style={{paddingTop:'10px'}}>
-            <p>{`SHOPPING CART = US$ ${totalAmount}`}</p>
+        <div style={{ paddingTop: '10px' }}>
+          <p>{`SHOPPING CART = US$ ${totalAmount}`}</p>
         </div>
         <div
           style={{

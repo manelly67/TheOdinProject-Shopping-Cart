@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import styles from '../styles/Themes.module.css';
 
-const {formatFirst} = styles;
+const { formatFirst } = styles;
 
 const ErrorPage = () => {
   return (
