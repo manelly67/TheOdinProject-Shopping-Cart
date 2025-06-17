@@ -47,7 +47,7 @@ const CartPage = (props) => {
   const totalItem = count * props.itemPrice;
   let totalAmount = props.addingInCart.map((e)=> e['totalLine']).reduce((total, currentItem) => {
     return total + currentItem;
-    }, 0);
+    }, 0).toFixed(2);
 
   return (
     <>
